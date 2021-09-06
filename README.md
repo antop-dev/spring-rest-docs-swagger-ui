@@ -5,9 +5,11 @@
 ![Spring REST Docs 2.0.5](https://img.shields.io/badge/Spring_REST_Docs-2.0.5-blue?style=flat-square)
 ![Swagger-UI 3](https://img.shields.io/badge/Swagger_UI-3.0.0-blue?style=flat-square)
 
-![Flow](https://i.imgur.com/yBFJfRW.png)
+### 개요
 
 Spring REST Docs와 Swagger의 장점만을 사용해보자!
+
+![Flow](https://i.imgur.com/yBFJfRW.png)
 
 1. restdocs-api-spec을 이용하여 테스트 코드를 작성한다. Spring REST Docs 일부 클래스를 랩핑한 클래스를 사옹하여 작성한다..
 2. `gradlew openapi3`로 OpenApi3 스팩에 맞는 파일을 생성한다.
@@ -18,6 +20,18 @@ Spring REST Docs와 Swagger의 장점만을 사용해보자!
         - `/swagger-resources/configuration/security`
     2. 생성된 openapi3 파일을 제공한다.
 4. /swagger-ui/ 로 접속하면 OpenAPI3 기반으로 UI가 보여지게 된다.
+
+### 실행
+
+실행: `gradlew test` → `gradlew openapi3` → `gradlew bootRun`
+
+API 문서 위치: http://localhost:8080/docs
+
+![1](https://i.imgur.com/NVXLw52.png)
+
+각 제목의 **테스트** 링크 클릭 또는 http://localhost:8080/swagger-ui
+
+![2](https://i.imgur.com/lJDwUNk.png)
 
 ### 후기
 
