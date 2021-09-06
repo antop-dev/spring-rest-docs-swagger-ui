@@ -36,7 +36,7 @@ API 문서 위치: http://localhost:8080/docs
 ### 후기
 
 1. [Asciidoctor](https://docs.asciidoctor.org/asciidoc/latest/) 문법을 잘 알아야 한다.
-2. 각 정보<sup>`snippet`</sup>를 커스터마이징<sup>`customize`</sup/>하려면 [Mustache](https://mustache.github.io/mustache.5.html) 문법을
+2. 각 정보<sup>`snippet`</sup>를 커스터마이징<sup>`customize`</sup>하려면 [Mustache](https://mustache.github.io/mustache.5.html) 문법을
    알아야 한다.
 3. 실패(`4xx`, `5xx`)에 대한 테스트 케이스를 통합해줘서 보여주면 좋겠다.
 4. Spring REST Docs를 주로(필드, 입출력 명세) 보고 간단히 테스트 용도로 Swagger-UI를 적용하는 방안으로 가야 할 것 같다.
