@@ -1,0 +1,188 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API 타이틀 넣는 곳",
+    "description" : "상세 설명 넣는 곳",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080"
+  } ],
+  "tags" : [ ],
+  "paths" : {
+    "/check" : {
+      "post" : {
+        "tags" : [ "check" ],
+        "summary" : "사용자 체크",
+        "description" : "사용자를 체크한다.",
+        "operationId" : "check",
+        "parameters" : [ {
+          "name" : "X-USER-ID",
+          "in" : "header",
+          "description" : "사용자 아이디",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "999"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200"
+          }
+        }
+      }
+    },
+    "/echo" : {
+      "post" : {
+        "tags" : [ "echo" ],
+        "summary" : "에코",
+        "description" : "받은 값을 그대로 돌려준다.",
+        "operationId" : "echo",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/echo486549215"
+              },
+              "examples" : {
+                "echo" : {
+                  "value" : "Antop!!!"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "text/plain;charset=UTF-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/echo486549215"
+                },
+                "examples" : {
+                  "echo" : {
+                    "value" : "Antop!!!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "사용자 등록",
+        "description" : "사용자를 등록한다.",
+        "operationId" : "register-user",
+        "requestBody" : {
+          "content" : {
+            "application/json;charset=UTF-8" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RegisterUser"
+              },
+              "examples" : {
+                "register-user" : {
+                  "value" : "{\r\n  \"name\" : \"안탑\",\r\n  \"address\" : \"서울시 강서구 방화동\"\r\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201",
+            "content" : {
+              "application/json;charset=UTF-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                },
+                "examples" : {
+                  "register-user" : {
+                    "value" : "{\r\n  \"id\" : 1,\r\n  \"name\" : \"안탑\",\r\n  \"address\" : \"서울시 강서구 방화동\"\r\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "사용자 조회",
+        "description" : "사용자를 조회한다.",
+        "operationId" : "get-user",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "사용자 아이디",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json;charset=UTF-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                },
+                "examples" : {
+                  "get-user" : {
+                    "value" : "{\r\n  \"id\" : 999,\r\n  \"name\" : \"유저 999\",\r\n  \"address\" : \"서울시 강서구 방화동\"\r\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "User" : {
+        "title" : "User",
+        "type" : "object",
+        "properties" : {
+          "address" : {
+            "type" : "string",
+            "description" : "주소"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "사용자명"
+          },
+          "id" : {
+            "type" : "number",
+            "description" : "사용자 아이디"
+          }
+        }
+      },
+      "RegisterUser" : {
+        "title" : "RegisterUser",
+        "type" : "object",
+        "properties" : {
+          "address" : {
+            "type" : "string",
+            "description" : "주소"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "사용자명"
+          }
+        }
+      },
+      "echo486549215" : {
+        "type" : "object"
+      }
+    }
+  }
+}

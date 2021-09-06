@@ -1,12 +1,17 @@
 # spring-rest-docs-swagger-ui
 
+![Java 11](https://img.shields.io/badge/Java-11-blue?style=flat-square)
+![Spring 2.5.4](https://img.shields.io/badge/Spring_Framework-2.5.4-blue?style=flat-square)
+![Spring REST Docs 2.0.5](https://img.shields.io/badge/Spring_REST_Docs-2.0.5-blue?style=flat-square)
+![Swagger-UI 3](https://img.shields.io/badge/Swagger_UI-3.0.0-blue?style=flat-square)
+
 ![Flow](https://i.imgur.com/yBFJfRW.png)
 
 Spring REST Docs와 Swagger의 장점만을 사용해보자!
 
-1. `restdocs-api-spec`을 이용하여 테스트 코드를 작성한다. Spring REST Docs 일부 클래스를 랩핑한 클래스를 사옹하여 작성한다..
-2. `gradlew openapi3'로 OpenApi3 스팩에 맞는 파일을 생성한다.
-3. WebJar로 패키징된 swagger-ui 프로젝트를 정상적으로 띄울 수 있도록 한다.
+1. restdocs-api-spec을 이용하여 테스트 코드를 작성한다. Spring REST Docs 일부 클래스를 랩핑한 클래스를 사옹하여 작성한다..
+2. `gradlew openapi3`로 OpenApi3 스팩에 맞는 파일을 생성한다.
+3. WebJar로 패키징된 **swagger-ui**를 정상적으로 띄울 수 있도록 한다.
     1. swagger-ui 가 정상적으로 동작할 수 있도록 아래 3개 URL을 제공한다.
         - `/swagger-resources`
         - `/swagger-resources/configuration/ui`
@@ -32,4 +37,4 @@ Spring REST Docs와 Swagger의 장점만을 사용해보자!
 * [Java］Spring REST Docs HTML이 생성되지 않을때](https://blog.hodory.dev/2019/12/04/spring-rest-docs-with-gradle-not-working-html5/)
 * [https://velog.io/@max9106/Spring-Spring-rest-docs를-이용한-문서화](https://velog.io/@max9106/Spring-Spring-rest-docs%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%AC%B8%EC%84%9C%ED%99%94)
 * [Spring Boot - rest docs 사용방법과 자동 목차생성(spring boot restdocs 설정](https://galid1.tistory.com/736)
-* [Spring Rest Docs 적용 - 우하한형제들](https://techblog.woowahan.com/2597/)
+* [Spring Rest Docs 적용](https://techblog.woowahan.com/2597/)

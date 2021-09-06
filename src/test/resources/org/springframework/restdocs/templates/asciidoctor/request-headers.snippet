@@ -1,0 +1,10 @@
+|===
+|해더명|타입|필수|설명
+
+{{#headers}}
+    |{{#tableCellContent}}`+{{name}}+`{{/tableCellContent}}
+    |{{#tableCellContent}}{{#type}}{{type}}{{/type}}{{/tableCellContent}}
+    |{{#tableCellContent}}{{^optional}}true{{/optional}}{{/tableCellContent}}
+    |{{#tableCellContent}}{{description}}{{/tableCellContent}}
+{{/headers}}
+|===

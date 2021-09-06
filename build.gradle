@@ -1,0 +1,75 @@
+plugins {
+    id "org.springframework.boot" version "2.5.4"
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id "java"
+    id "org.asciidoctor.jvm.convert" version "3.3.2"
+    id "com.epages.restdocs-api-spec" version "0.11.5"
+}
+
+group = "org.antop"
+version = "1.0.0"
+sourceCompatibility = "11"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set("snippetsDir", file("build/generated-snippets"))
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation group: "javax.validation", name: "validation-api", version: "2.0.1.Final"
+    compileOnly "org.projectlombok:lombok"
+    developmentOnly "org.springframework.boot:spring-boot-devtools"
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor "org.projectlombok:lombok"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.springframework.restdocs:spring-restdocs-mockmvc"
+    // swagger-ui
+    implementation "io.springfox:springfox-swagger-common:3.0.0"
+    implementation "io.springfox:springfox-swagger-ui:3.0.0"
+    // https://github.com/ePages-de/restdocs-api-spec
+    testImplementation "com.epages:restdocs-api-spec-mockmvc:0.11.5"
+    testImplementation "org.hibernate:hibernate-validator:5.2.4.Final"
+}
+
+test {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+asciidoctor {
+    dependsOn test
+    inputs.dir snippetsDir
+    finalizedBy "copyDocument"
+}
+
+asciidoctor.doFirst {
+    delete file('src/main/resources/static/docs')
+}
+
+task copyDocument(type: Copy) {
+    dependsOn asciidoctor
+    from file("build/docs/asciidoc")
+    into file("src/main/resources/static/docs")
+}
+
+openapi3 {
+    servers = [{ url = "http://localhost:8080" }]
+    title = "API 타이틀 넣는 곳"
+    version = "1.0.0"
+    description = "상세 설명 넣는 곳"
+    format = "json"
+    separatePublicApi = false
+    outputDirectory = "src/main/resources/api-docs/"
+}
